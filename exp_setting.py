@@ -22,7 +22,15 @@ def set_exp_dataset(exp_dict, args):
 
 def get_exp_dataset(name, basedir='dataset/'):
     exp_dict = {}
-    if name == 'iwslt2016-de-en':
+    if name =='bea-19':
+        basedir += 'st19-train-corrected/processed/'
+        exp_dict['enc_vocab'] = basedir + 'dict.src.txt'
+        exp_dict['dec_vocab'] = basedir + 'dict.trg.txt'
+        exp_dict['enc'] = basedir + 'train.src-trg.src'
+        exp_dict['dec'] = basedir + 'train.src-trg.trg'
+        exp_dict['enc_dev'] = basedir + 'valid.src-trg.src'
+        exp_dict['dec_dev'] = basedir + 'valid.src-trg.trg'
+    elif name == 'iwslt2016-de-en':
         exp_dict['enc_vocab'] = basedir + 'iwslt2016/de-en/train.de_bpe16000.vocab'
         exp_dict['dec_vocab'] = basedir + 'iwslt2016/de-en/train.en_bpe16000.vocab'
         exp_dict['enc'] = basedir + 'iwslt2016/de-en/train.de_bpe16000'
@@ -91,6 +99,15 @@ def get_exp_dataset(name, basedir='dataset/'):
         exp_dict['semi_dec'] = basedir + 'iwslt_wmt_semi/wmt14_predict_en_fr.iwslt.16000.fr'
         exp_dict['semi_enc_predict'] = basedir + 'iwslt_wmt_semi/fr-en.fr.train900000.txt'
         exp_dict['semi_dec_predict'] = basedir + 'iwslt_wmt_semi/fr-en.en.train900000.txt'
+    elif name == 'wmt14-en-de':
+        exp_dict['enc_vocab'] = basedir + 'wmt14_en_de/dict.en.txt'
+        exp_dict['dec_vocab'] = basedir + 'wmt14_en_de/dict.de.txt'
+        exp_dict['enc'] = basedir + 'wmt14_en_de/train.en-de.en.bin'
+        exp_dict['dec'] = basedir + 'wmt14_en_de/train.en-de.de.bin'
+        exp_dict['enc_dev'] = basedir + 'wmt14_en_de/valid.en-de.en.bin'
+        exp_dict['dec_dev'] = basedir + 'wmt14_en_de/valid.en-de.de.bin'
+        exp_dict['enc_eval_1'] = basedir + 'wmt14_en_de/test.en-de.en.bin'
+        exp_dict['dec_eval_1'] = basedir + 'wmt14_en_de/test.en-de.de.bin'
     elif name == 'wmt16-en-de-fairseq':
         exp_dict['joint_vocab'] = basedir + 'wmt16_en_de_bpe32k/vocab.bpe.32000'
         exp_dict['enc_vocab'] = basedir + 'wmt16_en_de_bpe32k/vocab.bpe.32000.en'
@@ -101,7 +118,6 @@ def get_exp_dataset(name, basedir='dataset/'):
         exp_dict['dec_dev'] = basedir + 'wmt16_en_de_bpe32k/newstest2013.tok.bpe.32000.de'
         exp_dict['enc_eval_1'] = basedir + 'wmt16_en_de_bpe32k/newstest2014.tok.bpe.32000.en'
         exp_dict['dec_eval_1'] = basedir + 'wmt16_en_de_bpe32k/newstest2014.tok.bpe.32000.de'
-
     elif name == 'wmt16-en-de':
         exp_dict['joint_vocab'] = basedir + 'wmt16/vocab.bpe.32000'
         exp_dict['enc_vocab'] = basedir + 'wmt16/vocab.bpe.32000.en'

@@ -1156,7 +1156,9 @@ if __name__ == "__main__":
                         help='Share Source/Target Embedding Matrix or not')
     # Arguments for dataset & vocab
     parser.add_argument('--dataset', dest='dataset', type=str, default='',
-                        choices=['iwslt2016-de-en', 'iwslt2016-en-de', 'iwslt2016-fr-en', 'iwslt2016-en-fr', 'wmt16-de-en', 'wmt16-en-de', 'wmt16-en-de-fairseq'])
+                        choices=['iwslt2016-de-en', 'iwslt2016-en-de', 'iwslt2016-fr-en', 'iwslt2016-en-fr',
+                                 'wmt14-en-de', 'wmt16-de-en', 'wmt16-en-de', 'wmt16-en-de-fairseq',
+                                 'bea-19'])
     parser.add_argument('--enc-data-file', dest='enc_data_file', type=os.path.abspath,
                         help='filename of encoder (input)-side data for training')
     parser.add_argument('--dec-data-file', dest='dec_data_file', type=os.path.abspath,
